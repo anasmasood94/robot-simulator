@@ -1,0 +1,30 @@
+
+<div class="container">
+  <h1>Robot Simulator</h1>
+
+  <div class="input-container">
+    <div class="input-box" id="inputBox"></div>
+
+    <div>
+      <input value="0" class="input-field" type="number" id="x" min="0" max="4" name="x" placeholder="X">
+      <input value="0" class="input-field" type="number" id="y" min="0" max="4" name="y" placeholder="Y">
+      <select name="direction" id="direction">
+        <option value="NORTH">NORTH</option>
+        <option value="SOUTH">SOUTH</option>
+        <option value="EAST">EAST</option>
+        <option value="WEST">WEST</option>
+      </select>
+      <button id="place">PLACE</button>
+    </div>
+    <div class="button-container">
+      <button class="action-button" id="move">MOVE</button>
+      <button class="action-button" id="left">LEFT</button>
+      <button class="action-button" id="right">RIGHT</button>
+       <button class="action-button" id="report">REPORT</button>
+    </div>
+
+    <button class="execute" id="execute">Execute</button>
+
+    <div id="outputBox"></div>
+  </div>
+</div>
