@@ -1,5 +1,7 @@
+let robot;
+
 function updateInputBox(value) {
-  $('#inputBox')[0].innerHTML =  $('#inputBox')[0].innerHTML + value + "<br/>";
+  $('#inputBox')[0].innerHTML =  $('#inputBox')[0].innerHTML + robot + " " + value + "<br/>";
 }
 
 function simulate(values) {
@@ -16,7 +18,7 @@ function simulate(values) {
       }).join("<br>")
 
       document.getElementById('outputBox').innerHTML = text
-      document.getElementById('inputBox').innerHTML = ""
+      // document.getElementById('inputBox').innerHTML = ""
     },
     error: function (){
       window.alert("something wrong!");
@@ -24,8 +26,14 @@ function simulate(values) {
   });
 }
 
-$(".action-button").on("click", function(event){
+$(".command").on("click", function(event){
   updateInputBox(event.target.innerText)
+});
+
+$(".robot-name").on("click", function(event){
+  robot = $(event.target).html()
+  $('.robot-name').removeClass("selected")
+  $(event.target).addClass("selected")
 });
 
 $("#place").on("click", function(){

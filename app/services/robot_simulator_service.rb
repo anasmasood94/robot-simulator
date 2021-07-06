@@ -13,6 +13,26 @@ class RobotSimulatorService
     @direction = validate_direction(direction)
   end
 
+  def simulate command
+    x_copy = @x
+    y_copy = @y
+    direction_copy = @direction
+
+    if command.include? "PLACE"
+      result = command.split("(").last.split(")").first.split(",")
+      place(result[0].to_i, result[1].to_i, result[2].strip)
+    else
+      send(command.downcase)
+    end
+    result = report
+
+    @x = x_copy
+    @y = y_copy
+    @direction = direction_copy
+
+    result
+  end
+
   def move
     return unless robot_is_placed?
 
